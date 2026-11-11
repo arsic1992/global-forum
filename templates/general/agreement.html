@@ -1,0 +1,49 @@
+<div class="fm-index-top">
+<!-- BEGIN switch_user_logged_in --><p class="right rightside fm-lastvisit">{LAST_VISIT_DATE}</p><!-- END switch_user_logged_in -->
+<p class="fm-curtime">{CURRENT_TIME}</p>
+</div>
+
+
+<!-- BEGIN switch_fb_explain -->
+<div class="panel fm-notice fm-notice-warn">
+	<div class="inner">
+		<span class="corners-top"><span></span></span>
+		<img src="https://2img.net/i/fa/admin/icones/big_ico/warning.png" class="left fm-notice-img" alt="" />
+		<div id="fb_explain" class="fm-notice-text">{switch_fb_explain.FB_EXPLAIN}</div>
+		<span class="corners-bottom"><span></span></span>
+	</div>
+</div>
+<!-- END switch_fb_explain -->
+<form method="GET" id="frmAgreement" class="fm-agree" action="{U_AGREE_OVER13}">
+<div class="panel fm-agree-panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<div class="fm-agree-head"><span class="fm-agree-ico" aria-hidden="true"></span></div>
+		<div class="fm-agree-doc">
+		{AGREEMENT}<br />
+		{MY_RULES}<br />
+		</div>
+		<div align="center" class="fm-agree-checks-wrap">
+			<div style="text-align:justify; display:inline-block;" align="justify" class="fm-agree-checks">
+				<input type="hidden" name="step" value="2" />
+				<!-- BEGIN switch_fb_explain -->
+				<input type="hidden" name="uid" value="{switch_fb_explain.FB_UID}" />
+				<!-- END switch_fb_explain -->
+				<p class="fm-agree-check">
+					<input type="checkbox" name="agreement" id="frmAgreeChkAgree" value="1" data-validation="required"/> <label for="frmAgreeChkAgree">{AGREE_CONDITIONS}</label> <br />
+				</p>
+				<p class="fm-agree-check">
+					<input type="checkbox" name="privacy" id="frmAgreeChkPrivacy" value="1" data-validation="required"/> <label for="frmAgreeChkPrivacy">{AGREE_PRIVACY}</label>
+				</p>
+			</div>
+		</div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<div class="panel fm-agree-submit">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<p class="center">
+			<input type="submit" value="{AGREE_OVER_13}" class="button1 cgu-buttons" />
+		</p>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+</form>

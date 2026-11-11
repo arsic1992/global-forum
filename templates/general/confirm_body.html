@@ -1,0 +1,20 @@
+<div class="fm-index-top">
+<!-- BEGIN switch_user_logged_in --><p class="right rightside fm-lastvisit">{LAST_VISIT_DATE}</p><!-- END switch_user_logged_in -->
+<p class="fm-curtime">{CURRENT_TIME}</p>
+</div>
+
+<div class="panel fm-dialog fm-confirm">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<span class="fm-dialog-ico" aria-hidden="true"></span>
+	<h1 class="page-title fm-dialog-title">{MESSAGE_TITLE}</h1>
+	<form action="{S_CONFIRM_ACTION}" method="post" class="fm-dialog-form">
+		<p class="fm-dialog-text">{MESSAGE_TEXT}</p>
+		<div class="fm-dialog-extra">{OPTIONAL_BAN_NEW}</div>
+		<fieldset class="submit-buttons fm-dialog-buttons">
+			{S_HIDDEN_FIELDS}
+			<input class="button2 fm-yes" type="submit" name="confirm" value="{L_YES}" />&nbsp;
+			<input class="button2 fm-no" type="submit" name="cancel" value="{L_NO}" />
+		</fieldset>
+	</form>
+	<span class="corners-bottom"><span></span></span></div>
+</div>

@@ -1,0 +1,85 @@
+<div class="fm-index-top">
+	<!-- BEGIN switch_user_logged_in -->
+	<p class="right rightside fm-lastvisit">{LAST_VISIT_DATE}</p>
+	<!-- END switch_user_logged_in -->
+
+	<p class="fm-curtime">{CURRENT_TIME}</p>
+</div>
+<h1 class="page-title solo fm-page-title">{PAGE_TITLE}</h1>
+
+<form class="fm-ml-search" action="{S_MODE_ACTION}" method="get">
+<div class="panel fm-ml-filter">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<h2 class="h3">{L_ORDER_OR_SELECT}</h2>
+	<p class="fm-ml-fields" style="text-align:right; margin: 0; padding: 0;">
+		<label class="fm-ml-field fm-ml-user"><span>{L_USER_SELECT}</span>&nbsp;<input type="text" class="inputbox tiny" name="username" maxlength="25" size="20" value="{L_USER_SELECT_VALUE}" /></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="fm-ml-field"><span>{L_SELECT_SORT_METHOD}</span>&nbsp;{S_MODE_SELECT}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<label class="fm-ml-field"><span>{L_ORDER}</span>&nbsp;{S_ORDER_SELECT}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{S_HIDDEN_SID}
+		<input class="button2" type="submit" name="submit" value="{L_SUBMIT}" />
+	</p>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+</form>
+
+<div class="forumbg forumbg-table fm-ml">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<table class="table1 fm-ml-table" cellspacing="1" id="memberlist">
+	<thead>
+	<tr>
+		<th class="number">#</th>
+		<th class="name">{L_AVATAR} - {L_USERNAME}</th>
+		<!-- BEGIN switch_th_group -->
+			<th class="group">{L_GROUPS}</th>
+		<!-- END switch_th_group -->
+		<!-- BEGIN switch_th_point -->
+			<th class="point">{L_POINT}</th>
+		<!-- END switch_th_point -->
+		<th class="interests">{L_INTERESTS}</th>
+		<th class="joined">{L_JOINED}</th>
+		<th class="active">{L_VISITED}</th>
+		<th class="posts">{L_POSTS}</th>
+		<!-- BEGIN switch_th_pm -->
+		<th class="pm">{L_PM}</th>
+		<!-- END switch_th_pm -->
+		<th class="website">{L_WEBSITE}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN memberrow -->
+	<tr class="{memberrow.ROW_CLASS} fm-ml-card">
+		<td class="fm-ml-rank">&nbsp;{memberrow.ROW_NUMBER}&nbsp;</td>
+		<td class="avatar-mini fm-ml-user"><a href="{memberrow.U_VIEWPROFILE}">{memberrow.AVATAR_IMG}&nbsp;{memberrow.USERNAME}</a></td>
+		<!-- BEGIN switch_td_group -->
+			<td class="fm-ml-stat fm-ml-groups"><span class="fm-ml-label">{L_GROUPS}</span><span class="fm-ml-value">{memberrow.GROUPS}</span></td>
+		<!-- END switch_td_group -->
+		<!-- BEGIN switch_td_point -->
+			<td class="fm-ml-stat fm-ml-points"><span class="fm-ml-label">{L_POINT}</span><span class="fm-ml-value">{memberrow.POINTS}</span></td>
+		<!-- END switch_td_point -->
+		<td class="fm-ml-interests">{memberrow.INTERESTS}</td>
+		<td class="fm-ml-stat fm-ml-joined"><span class="fm-ml-label">{L_JOINED}</span><span class="fm-ml-value">{memberrow.JOINED}</span></td>
+		<td class="fm-ml-stat fm-ml-visit"><span class="fm-ml-label">{L_VISITED}</span><span class="fm-ml-value">{memberrow.LASTVISIT}</span></td>
+		<td class="fm-ml-stat fm-ml-posts"><span class="fm-ml-label">{L_POSTS}</span><span class="fm-ml-value">{memberrow.POSTS}</span></td>
+		<!-- BEGIN switch_td_pm -->
+		<td class="fm-ml-act fm-ml-pm">&nbsp;{memberrow.PM_IMG}&nbsp;</td>
+		<!-- END switch_td_pm -->
+		<td class="fm-ml-act fm-ml-www">&nbsp;{memberrow.WWW_IMG}&nbsp;</td>
+	</tr>
+	<!-- END memberrow -->
+	<!-- BEGIN switch_no_user -->
+	<tr class="row1 fm-ml-empty">
+		<td colspan="{switch_no_user.COLSPAN_NUMBER}">{switch_no_user.L_NO_USER}</td>
+	</tr>
+	<!-- END switch_no_user -->
+	</tbody>
+	</table>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<div class="pagination fm-pagebar fm-ml-pages" style="float:none;">
+	<!-- BEGIN switch_pagination -->
+	<span class="fm-pages">{PAGINATION}</span><br /><br />
+	<!-- END switch_pagination -->
+</div>

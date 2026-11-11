@@ -1,0 +1,124 @@
+<div class="fm-index-top">
+	<!-- BEGIN switch_user_logged_in --><p class="right rightside fm-lastvisit">{LAST_VISIT_DATE}</p><!-- END switch_user_logged_in -->
+	<p class="fm-curtime">{CURRENT_TIME}</p>
+</div>
+
+<h1 class="page-title fm-page-title"><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a></h1>
+
+{BOARD_INDEX}
+
+<div class="pagination fm-pagebar fm-pagebar-top">
+	<!-- BEGIN show_plus_menu -->
+	<br />
+	<a class="fm-mark-read" href="{U_MARK_READ}">{L_MARK_TOPICS_READ}</a>&nbsp;&bull;&nbsp;
+	<script type="text/javascript">//<![CDATA[
+		var url_newposts = '{U_NEWPOSTS_JS_PLUS_MENU}';
+		var url_egosearch = '{U_EGOSEARCH_JS_PLUS_MENU}';
+		var url_unanswered = '{U_UNANSWERED_JS_PLUS_MENU}';
+		var url_watchsearch = '{U_WATCHSEARCH_JS_PLUS_MENU}';
+		insert_plus_menu_new('f{FORUM_ID}&amp;f={FORUM_ID}','{JS_SESSION_ID}', {JS_AUTH_FAVOURITES});
+	//]]>
+	</script>
+	<!-- END show_plus_menu -->
+	<span class="fm-pages">{PAGINATION}</span>
+	<br /><br />
+</div>
+
+<div class="topic-actions fm-actions fm-actions-top">
+<!-- BEGIN switch_user_authpost -->
+	<div class="buttons">
+		<div class="post-icon"><a class="fm-btn fm-btn-primary" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><img src="{POST_IMG}" class="{POST_IMG_ID}" alt="{L_POST_NEW_TOPIC}" /><span class="fm-btn-label">{L_POST_NEW_TOPIC}</span></a></div>
+	</div>
+<!-- END switch_user_authpost -->
+	<p class="nomargin path fm-path">
+		<a class="nav" href="{U_INDEX}"><span>{L_INDEX}</span></a>
+		{NAV_CAT_DESC}
+	</p>
+	<div class="search-box fm-forum-search">
+		<form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
+		<fieldset>
+			<input class="inputbox search tiny" type="text" name="search_keywords" id="search_keywords" size="20" value="{L_SEARCH}" onclick="if (this.value == '{L_SEARCH}') this.value = '';" onblur="if (this.value == '') this.value = '{L_SEARCH}';" />
+			&nbsp;<input class="button2" type="submit" value="{L_SEARCH}" />
+			<input type="hidden" value="{SEARCH_WHERE}" name="search_where" />
+		</fieldset>
+		</form>
+	</div>
+</div>
+
+{TOPICS_LIST_BOX}
+
+<div class="topic-actions fm-actions fm-actions-bottom">
+	<!-- BEGIN switch_user_authpost -->
+	<div class="buttons">
+		<div class="post-icon"><a class="fm-btn fm-btn-primary" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow"><img src="{POST_IMG}" class="{POST_IMG_ID}" alt="{L_POST_NEW_TOPIC}" /><span class="fm-btn-label">{L_POST_NEW_TOPIC}</span></a></div>
+	</div>
+	<!-- END switch_user_authpost -->
+
+	<div class="pagination fm-pagebar">
+		<span class="fm-pages">{PAGINATION}</span><br />
+		<span class="fm-forum-links"><a href="{U_MARK_READ}">{L_MARK_TOPICS_READ}</a>&nbsp;&bull;&nbsp;{S_WATCH_FORUM}&nbsp;&bull;&nbsp;<a class="fm-to-top" href="#top">{L_BACK_TO_TOP}</a></span><br /><br />
+	</div>
+</div>
+
+<div class="clear"></div>
+
+<div class="action-box fm-action-box">
+	<!-- BEGIN switch_sort_options -->
+	<div id="sort-box">
+		<form method="post" class="sort-form">
+			<fieldset>
+				<label>{switch_sort_options.L_SORT_BY}:&nbsp;</label>
+				<select name="sort_method">
+					{switch_sort_options.S_OPTIONS}
+				</select>&nbsp;
+				<input class="button2" type="submit" value="{switch_sort_options.L_SORT}" />
+			</fieldset>
+		</form>
+	</div>
+	<!-- END switch_sort_options -->
+
+	<form action="{S_JUMPBOX_ACTION}" method="get" name="jumpbox" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+		<fieldset class="vf_jumpbox">
+			<label>{L_JUMP_TO}:&nbsp;</label>
+			{S_JUMPBOX_SELECT}&nbsp;
+			<input class="button2" type="submit" value="{L_GO}" />
+		</fieldset>
+	</form>
+</div>
+
+<div class="fm-browsing">{LOGGED_IN_USER_LIST}</div>
+
+<div id="info_open" class="fm-forum-info" style="display:block;clear:both">
+	<div class="fm-box fm-mods-box">
+		<div class="h3 fm-box-title">{L_MODERATOR}</div>
+		<p class="fm-box-body">{MODERATORS}</p>
+	</div>
+
+	<div class="fm-box fm-perms-box">
+		<div class="h3 fm-box-title">{L_TABS_PERMISSIONS}</div>
+		<p class="fm-box-body">{S_AUTH_LIST}</p>
+	</div>
+
+</div>
+<!-- BEGIN switch_legend -->
+<div class="fm-box fm-topic-legend">
+<div class="h3 fm-box-title">{L_LEGEND}</div>
+	<div class="clearfix fm-legend-grid">
+		<ul class="ul-icons">
+			<li class="fm-lg fm-lg-topic fm-lg-new"><img src="{FOLDER_NEW_IMG}" alt="{L_FOLDER_NEW_IMG}" loading="lazy" />&nbsp;{L_FOLDER_NEW_IMG}</li>
+			<li class="fm-lg fm-lg-hot fm-lg-new"><img src="{FOLDER_HOT_NEW_IMG}" alt="{L_FOLDER_HOT_NEW_IMG}" loading="lazy" />&nbsp;{L_FOLDER_HOT_NEW_IMG}</li>
+			<li class="fm-lg fm-lg-lock fm-lg-new"><img src="{FOLDER_LOCKED_NEW_IMG}" alt="{L_FOLDER_LOCKED_NEW_IMG}" loading="lazy" />&nbsp;{L_FOLDER_LOCKED_NEW_IMG}</li>
+		</ul>
+		<ul class="ul-icons">
+			<li class="fm-lg fm-lg-topic"><img src="{FOLDER_IMG}" alt="{L_FOLDER_IMG}" loading="lazy" />&nbsp;{L_FOLDER_IMG}</li>
+			<li class="fm-lg fm-lg-hot"><img src="{FOLDER_HOT_IMG}" alt="{L_FOLDER_HOT_IMG}" loading="lazy" />&nbsp;{L_FOLDER_HOT_IMG}</li>
+			<li class="fm-lg fm-lg-lock"><img src="{FOLDER_LOCKED_IMG}" alt="{L_FOLDER_LOCKED_IMG}" loading="lazy" />&nbsp;{L_FOLDER_LOCKED_IMG}</li>
+		</ul>
+		<ul class="ul-icons">
+			<li class="fm-lg fm-lg-announce"><img src="{FOLDER_ANNOUNCE_IMG}" alt="{L_FOLDER_ANNOUNCE_IMG}" loading="lazy" />&nbsp;{L_FOLDER_ANNOUNCE_IMG}</li>
+			<li class="fm-lg fm-lg-sticky"><img src="{FOLDER_STICKY_IMG}" alt="{L_FOLDER_STICKY_IMG}" loading="lazy" />&nbsp;{L_FOLDER_STICKY_IMG}</li>
+			<li class="fm-lg fm-lg-global"><img src="{FOLDER_GLOBAL_ANNOUNCE_IMG}" alt="{L_FOLDER_GLOBAL_ANNOUNCE_IMG}" loading="lazy" />&nbsp;{L_FOLDER_GLOBAL_ANNOUNCE_IMG}</li>
+		</ul>
+	</div>
+</div>
+<!-- END switch_legend -->

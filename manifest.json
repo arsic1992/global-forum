@@ -1,0 +1,105 @@
+{
+  "name": "The Commons",
+  "version": "1.0.0",
+  "author": "arsic1992",
+  "description": "Seasonal flexbox theme for Forumotion (phpBB3): 4 seasons, 6 holidays, display options, levels & badges, conversations.",
+  "templates": {
+    "agreement": "templates/general/agreement.html",
+    "confirm_body": "templates/general/confirm_body.html",
+    "buy_credits": "templates/general/buy_credits.html",
+    "faq_body": "templates/general/faq_body.html",
+    "faq_dhtml": "templates/general/faq_dhtml.html",
+    "greeting_popup": "templates/general/greeting_popup.html",
+    "index_body": "templates/general/index_body.html",
+    "index_box": "templates/general/index_box.html",
+    "jumpbox": "templates/general/jumpbox.html",
+    "memberlist_body": "templates/general/memberlist_body.html",
+    "message_body": "templates/general/message_body.html",
+    "overall_footer_begin": "templates/general/overall_footer_begin.html",
+    "overall_header": "templates/general/overall_header.html",
+    "search_body": "templates/general/search_body.html",
+    "search_results_posts": "templates/general/search_results_posts.html",
+    "search_results_topics": "templates/general/search_results_topics.html",
+    "search_username": "templates/general/search_username.html",
+    "topics_list_box": "templates/general/topics_list_box.html",
+    "viewforum_body": "templates/general/viewforum_body.html",
+    "viewonline_body": "templates/general/viewonline_body.html",
+    "viewtopic_body": "templates/general/viewtopic_body.html",
+    "viewtopic_poll_ballot": "templates/general/viewtopic_poll_ballot.html",
+    "viewtopic_poll_result": "templates/general/viewtopic_poll_result.html",
+    "overall_footer_end": "templates/general/overall_footer_end.html",
+    "footer_widgets": "templates/general/footer_widgets.html",
+    "images_list": "templates/general/images_list.html",
+    "groupcp_info_body": "templates/usergroups/groupcp_info_body.html",
+    "groupcp_pending_info": "templates/usergroups/groupcp_pending_info.html",
+    "groupcp_user_body": "templates/usergroups/groupcp_user_body.html",
+    "posting_body": "templates/post-and-private-messages/posting_body.html",
+    "posting_confirm_code": "templates/post-and-private-messages/posting_confirm_code.html",
+    "posting_poll_body": "templates/post-and-private-messages/posting_poll_body.html",
+    "posting_preview": "templates/post-and-private-messages/posting_preview.html",
+    "posting_topic_review": "templates/post-and-private-messages/posting_topic_review.html",
+    "privmsg_topic_review": "templates/post-and-private-messages/privmsg_topic_review.html",
+    "privmsgs_body": "templates/post-and-private-messages/privmsgs_body.html",
+    "privmsgs_popup": "templates/post-and-private-messages/privmsgs_popup.html",
+    "privmsgs_preview": "templates/post-and-private-messages/privmsgs_preview.html",
+    "privmsgs_read_body": "templates/post-and-private-messages/privmsgs_read_body.html",
+    "merge_body": "templates/moderation/merge_body.html",
+    "merge_select_body": "templates/moderation/merge_select_body.html",
+    "modcp_body": "templates/moderation/modcp_body.html",
+    "modcp_move": "templates/moderation/modcp_move.html",
+    "modcp_split": "templates/moderation/modcp_split.html",
+    "modcp_viewip": "templates/moderation/modcp_viewip.html",
+    "report_list_body": "templates/moderation/report_list_body.html",
+    "report_popup_body": "templates/moderation/report_popup_body.html",
+    "report_view_body": "templates/moderation/report_view_body.html",
+    "profile_add_body": "templates/profile/profile_add_body.html",
+    "profile_advanced_body": "templates/profile/profile_advanced_body.html",
+    "profile_avatar_gallery": "templates/profile/profile_avatar_gallery.html",
+    "profile_edit_signature": "templates/profile/profile_edit_signature.html",
+    "profile_send_email": "templates/profile/profile_send_email.html",
+    "profile_send_pass": "templates/profile/profile_send_pass.html",
+    "profile_view_body": "templates/profile/profile_view_body.html",
+    "rpg_sheet": "templates/profile/rpg_sheet.html",
+    "rpg_sheet_edit": "templates/profile/rpg_sheet_edit.html",
+    "mentions_tooltip": "templates/general/mentions_tooltip.html"
+  },
+  "ids": {},
+  "javascript": [
+    {
+      "file": "js/fm-theme-switcher.js",
+      "title": "The Commons - Theme switcher",
+      "placement": "all"
+    },
+    {
+      "file": "js/fm-usernav.js",
+      "title": "The Commons - User menu & notifications",
+      "placement": "all"
+    },
+    {
+      "file": "js/fm-extras.js",
+      "title": "The Commons - Reading extras, levels, conversations",
+      "placement": "all"
+    },
+    {
+      "file": "js/fm-seasonfx.js",
+      "title": "The Commons - Season effects & New Year countdown",
+      "placement": "all"
+    },
+    {
+      "file": "js/fm-post-votes.js",
+      "title": "The Commons - Post reputation",
+      "placement": "all"
+    },
+    {
+      "file": "js/fm-code-copy.js",
+      "title": "The Commons - Copy button for code",
+      "placement": "all"
+    }
+  ],
+  "notes": [
+    "The forum must use the phpBB3 version (Display > General > Choose a theme).",
+    "The stylesheet loads from GitHub through the link in overall_header, so the forum's own CSS box is left as it is.",
+    "Javascript codes management is turned on automatically; the six modules are added \"In all the pages\".",
+    "Levels & badges read the Posts, Reputation and Join date profile fields next to posts: show them in Users & Groups > Profiles > Profile fields."
+  ]
+}

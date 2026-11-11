@@ -1,0 +1,40 @@
+<div class="panel fm-poll fm-poll-result">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<div class="content">
+		<h2 class="left-box fm-poll-q" style="width: 97%;">{POLL_QUESTION}</h2><p class="right-box fm-poll-close">{CLOSE_POLL}</p>
+		<div class="clear"></div>
+		<fieldset class="polls">
+		<!-- BEGIN poll_option -->
+		<dl class="fm-poll-row" style="--fm-pct: {poll_option.POLL_OPTION_PERCENT};">
+			<dt><label>{poll_option.POLL_OPTION_CAPTION}</label></dt>
+
+			<dd class="fm-poll-bar" style="width:35%;"><img src="{VOTE_LCAP_IMG}" height="12" alt="" loading="lazy" /><img src="{poll_option.POLL_OPTION_IMG}" width="{poll_option.POLL_OPTION_IMG_WIDTH}" height="12" alt="{poll_option.POLL_OPTION_PERCENT}" loading="lazy" /><img src="{VOTE_RCAP_IMG}" height="12" alt="" loading="lazy" />&nbsp;<span class="fm-poll-pct">{poll_option.POLL_OPTION_PERCENT}</span>&nbsp;</dd>
+			<dd class="fm-poll-count">[ {poll_option.POLL_OPTION_RESULT} ]</dd>
+			<!-- BEGIN option_voters --><dd class="option_voters_list">{poll_option.option_voters.POLL_OPTION_VOTERS}</dd><!-- END option_voters -->
+		</dl>
+		<!-- END poll_option -->
+		<dl class="fm-poll-total">
+			<dt>&nbsp;</dt>
+			<dd><strong>{L_TOTAL_VOTES} : {TOTAL_VOTES}</strong></dd>
+			<!-- BEGIN cancel_vote -->
+			<dd class="fm-poll-cancel"><b><a href="{U_CANCEL_VOTE}">{L_CANCEL_VOTE}</a></b></dd>
+			<!-- END cancel_vote -->
+			<!-- BEGIN switch_back_to_vote -->
+			<dd class="fm-poll-back"><b><a href="{switch_back_to_vote.U_BACK_TO_VOTE}">{switch_back_to_vote.L_BACK}</a></b></dd>
+			<!-- END switch_back_to_vote -->
+		</dl>
+		<d1 class="fm-poll-voters">
+			<dt>&nbsp</dt>
+			<dd style="width:40%;">{ALL_POLL_VOTERS_LIST}</dd>
+		</d1>
+		<d1 class="fm-poll-expire">
+			<dt>&nbsp;</dt>
+			<dd>{L_VOTE_EXPIRE}</dd>
+		</d1>
+		<!-- BEGIN switch_hide_result -->
+		<div id="hide_result_msg" class="fm-poll-hidden">{L_POLL_HIDE_RESULT}</div>
+		<!-- END switch_hide_result -->
+		</fieldset>
+		</div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>

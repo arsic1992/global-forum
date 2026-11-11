@@ -1,0 +1,64 @@
+<!-- BEGIN googlemap -->
+<div class="fm-wo-map">
+	<br />
+	<iframe frameborder="0" scrolling="no" width="100%" height="450" src="{googlemap.U_GOOGLEMAP}"></iframe><br />
+	<br />
+</div>
+<!-- END googlemap -->
+
+<div class="fm-index-top">
+<!-- BEGIN switch_user_logged_in -->
+<p class="right rightside fm-lastvisit">{LAST_VISIT_DATE}</p>
+<!-- END switch_user_logged_in -->
+
+<p class="fm-curtime">{CURRENT_TIME}</p>
+</div>
+
+<div class="fm-wo-head">
+	<span class="fm-wo-pulse" aria-hidden="true"></span>
+	<div class="fm-wo-head-text">
+		<h1 class="page-title fm-page-title fm-wo-title">{TOTAL_REGISTERED_USERS_ONLINE}</h1>
+		<p class="fm-wo-guests">{TOTAL_GUEST_USERS_ONLINE}</p>
+	</div>
+</div>
+
+<div class="forumbg fm-wo">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<table class="table1 fm-wo-table" cellspacing="1">
+		<thead>
+			<tr class="fm-wo-headrow">
+				<th class="name fm-wo-c-name">{L_USERNAME}</th>
+				<th class="active fm-wo-c-time">{L_LAST_UPDATE}</th>
+				<th class="info fm-wo-c-where">{L_FORUM_LOCATION}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN reg_user_row -->
+			<tr class="{reg_user_row.ROW_CLASS} fm-wo-row fm-wo-reg">
+				<td class="fm-wo-c-name"><a href="{reg_user_row.U_USER_PROFILE}">{reg_user_row.USERNAME}</a></td>
+				<td class="fm-wo-c-time">{reg_user_row.LASTUPDATE}</td>
+				<td class="fm-wo-c-where"><a href="{reg_user_row.U_FORUM_LOCATION}">{reg_user_row.FORUM_LOCATION}</a></td>
+			</tr>
+			<!-- END reg_user_row -->
+			<!-- BEGIN bot_user_row -->
+			<tr class="{bot_user_row.ROW_CLASS} fm-wo-row fm-wo-bot">
+				<td class="fm-wo-c-name"><span class="fm-wo-name">{bot_user_row.USERNAME}</span></td>
+				<td class="fm-wo-c-time">{bot_user_row.LASTUPDATE}</td>
+				<td class="fm-wo-c-where"><a href="{bot_user_row.U_FORUM_LOCATION}">{bot_user_row.FORUM_LOCATION}</a></td>
+			</tr>
+			<!-- END bot_user_row -->
+			<!-- BEGIN guest_user_row -->
+			<tr class="{guest_user_row.ROW_CLASS} fm-wo-row fm-wo-guest">
+				<td class="fm-wo-c-name"><span class="fm-wo-name">{guest_user_row.USERNAME}</span></td>
+				<td class="fm-wo-c-time">{guest_user_row.LASTUPDATE}</td>
+				<td class="fm-wo-c-where"><a href="{guest_user_row.U_FORUM_LOCATION}">{guest_user_row.FORUM_LOCATION}</a></td>
+			</tr>
+			<!-- END guest_user_row -->
+		</tbody>
+	</table>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<p class="fm-wo-explain">{L_ONLINE_EXPLAIN}</p>
+
+<div class="fm-wo-jump">{JUMPBOX}</div>

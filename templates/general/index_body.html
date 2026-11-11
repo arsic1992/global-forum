@@ -1,0 +1,164 @@
+{JAVASCRIPT}
+<div class="fm-index-top">
+	<!-- BEGIN switch_user_logged_in --><p class="right rightside fm-lastvisit">{LAST_VISIT_DATE}</p><!-- END switch_user_logged_in -->
+	<p class="fm-curtime">{CURRENT_TIME}</p>
+</div>
+<div class="fm-catname">{CAT_NAME}</div>
+<br class="clear" />
+
+<!-- BEGIN switch_user_login_form_header -->
+<div class="panel fm-login">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<form action="{S_LOGIN_ACTION}" method="post" name="form_login">
+			<div class="user_login_form center">
+				<label>{L_USERNAME} : <input class="post" type="text" size="10" name="username" /></label>&nbsp;
+				<label>{L_PASSWORD} : <input class="post" type="password" size="10" name="password" /></label>&nbsp;
+				<label class="fm-login-auto">{L_AUTO_LOGIN} : <input class="radio" type="checkbox" name="autologin" {AUTOLOGIN_CHECKED} /></label>&nbsp;
+				{S_HIDDEN_FIELDS}<input class="mainoption button1" type="submit" name="login" value="{L_LOGIN}" />
+
+                <!-- BEGIN switch_social_login -->
+                <div class="social_btn">
+                    <!-- BEGIN fb_connect -->
+                    <div class="fb-login-button"></div>
+                    <!-- END fb_connect -->
+                    <!-- BEGIN topicit_connect -->
+                    <div class="ti-connect"></div>
+                    <!-- END topicit_connect -->
+                </div>
+                <!-- END switch_social_login -->
+			</div>
+		</form>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- END switch_user_login_form_header -->
+
+<!-- BEGIN message_admin_index -->
+	<div class="panel introduction fm-intro">
+		<div class="inner"><span class="corners-top"><span></span></span>
+	<!-- BEGIN message_admin_titre -->
+		<div class="h3 fm-intro-title">{message_admin_index.message_admin_titre.MES_TITRE}</div>
+	<!-- END message_admin_titre -->
+
+	<!-- BEGIN message_admin_txt -->
+		<div class="mes-txt fm-intro-text">{message_admin_index.message_admin_txt.MES_TXT}</div>
+	<!-- END message_admin_txt -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+<!-- END message_admin_index -->
+
+{CHATBOX_TOP}
+{BOARD_INDEX}
+
+<!-- BEGIN disable_viewonline -->
+<div class="fm-board-info">
+
+	<div class="fm-box fm-online">
+	<!-- BEGIN switch_viewonline_link -->
+	<div class="h3 fm-box-title"><a href="{U_VIEWONLINE}" rel="nofollow">{L_WHO_IS_ONLINE}</a></div>
+	<!-- END switch_viewonline_link -->
+
+	<!-- BEGIN switch_viewonline_nolink -->
+	<div class="h3 fm-box-title">{L_WHO_IS_ONLINE}</div>
+	<!-- END switch_viewonline_nolink -->
+
+	<img src="{L_ONLINE_IMG}" id="i_whosonline" alt="{L_WHO_IS_ONLINE}" class="img-whois" loading="lazy" />
+	<div class="fm-box-body fm-online-body">
+		<div class="fm-online-total">{TOTAL_USERS_ONLINE}</div><br />
+		<div class="fm-online-record">{RECORD_USERS}</div>
+
+		<br />
+		<div class="fm-online-users">{LOGGED_IN_USER_LIST}</div>
+
+		<div class="fm-online-extra">{L_ONLINE_USERS}
+		{L_CONNECTED_MEMBERS}</div><br />
+		<div class="fm-online-bdays">{L_WHOSBIRTHDAY_TODAY}{L_WHOSBIRTHDAY_WEEK}</div>
+
+		<br />
+		<!-- BEGIN switch_group_legend -->
+		<div class="fm-group-legend"><em><span class="fm-group-legend-label">{LEGEND}</span>&nbsp;:&nbsp;<span class="fm-group-legend-list">{GROUP_LEGEND}</span></em></div>
+		<!-- END switch_group_legend -->
+
+	</div>
+	</div>
+	<div class="clear"></div>
+
+	<div class="fm-box fm-statbox">
+	<!-- BEGIN switch_statistics_link -->
+	<div class="h3 fm-box-title"><a href="{U_STATISTICS}" rel="nofollow">{L_STATISTICS}</a></div>
+	<!-- END switch_statistics_link -->
+
+	<!-- BEGIN switch_statistics_nolink -->
+	<div class="h3 fm-box-title">{L_STATISTICS}</div>
+	<!-- END switch_statistics_nolink -->
+
+	<div class="fm-box-body fm-stat-list">
+		<p class="page-bottom fm-stat-posts">
+		{TOTAL_POSTS}
+		</p>
+		<p class="page-bottom fm-stat-users">
+		{TOTAL_USERS}
+		</p>
+		<p class="page-bottom fm-stat-newest">
+		{NEWEST_USER}
+		</p>
+	</div>
+	</div>
+
+	<!-- BEGIN switch_chatbox_activate -->
+	<div class="fm-box fm-chatbox">
+	<div class="h3 fm-box-title"><a href="{S_JOIN_CHAT}" target="ChatBox">{CHATBOX_NAME}</a></div>
+	<div class="page-bottom fm-box-body">
+	{TOTAL_CHATTERS_ONLINE}&nbsp;:&nbsp;
+	{CHATTERS_LIST}<br />
+	</div>
+		<!-- BEGIN switch_chatbox_popup -->
+		<div id="chatbox_popup"></div>
+		<script type="text/javascript">
+		insertChatBoxPopup('{disable_viewonline.switch_chatbox_activate.switch_chatbox_popup.U_FRAME_CHATBOX}', '{L_CLICK_TO_JOIN_CHAT}');
+		</script>
+		<!-- END switch_chatbox_popup -->
+	</div>
+	<!-- END switch_chatbox_activate -->
+
+</div>
+<!-- END disable_viewonline -->
+
+{CHATBOX_BOTTOM}
+
+<!-- BEGIN switch_user_login_form_footer -->
+<div class="panel fm-login">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<form action="{S_LOGIN_ACTION}" method="post" name="form_login">
+			<div class="user_login_form center">
+				<label>{L_USERNAME} : <input class="post" type="text" size="10" name="username" /></label>&nbsp;
+				<label>{L_PASSWORD} : <input class="post" type="password" size="10" name="password" /></label>&nbsp;
+				<label class="fm-login-auto">{L_AUTO_LOGIN} : <input class="radio" type="checkbox" name="autologin" {AUTOLOGIN_CHECKED} /></label>&nbsp;
+				{S_HIDDEN_FIELDS}<input class="mainoption button1" type="submit" name="login" value="{L_LOGIN}" />
+
+                <!-- BEGIN switch_social_login -->
+                <div class="social_btn">
+                    <!-- BEGIN fb_connect -->
+                    <div class="fb-login-button"></div>
+                    <!-- END fb_connect -->
+                    <!-- BEGIN topicit_connect -->
+                    <div class="ti-connect"></div>
+                    <!-- END topicit_connect -->
+                </div>
+                <!-- END switch_social_login -->
+			</div>
+		</form>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- END switch_user_login_form_footer -->
+
+<br style="clear:both" />
+
+<!-- BEGIN switch_legend -->
+<ul id="picture_legend" class="fm-picture-legend">
+	<li class="fm-leg-new"><img src="{FORUM_NEW_IMG}" alt="{L_NEW_POSTS}" loading="lazy"/>{L_NEW_POSTS}</li>
+	<li class="fm-leg-old"><img src="{FORUM_IMG}" alt="{L_NO_NEW_POSTS}" loading="lazy"/>{L_NO_NEW_POSTS}</li>
+	<li class="fm-leg-lock"><img src="{FORUM_LOCKED_IMG}" alt="{L_FORUM_LOCKED}" loading="lazy"/>{L_FORUM_LOCKED}</li>
+</ul>
+<!-- END switch_legend -->
+
+{AUTO_DST}

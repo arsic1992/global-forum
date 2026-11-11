@@ -1,0 +1,39 @@
+<div id="theme-installer" style="max-width:1000px;margin:18px auto;padding:46px 20px;border:1px solid rgba(128,128,128,.25);border-radius:20px;text-align:center;font:14px/1.5 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#8a7d70">
+  <div style="width:38px;height:38px;margin:0 auto 12px;border-radius:50%;border:4px solid rgba(128,128,128,.2);border-top-color:#e0873a;animation:thi-spin .9s linear infinite"></div>
+  Loading the theme installer…
+  <style>@keyframes thi-spin{to{transform:rotate(360deg)}}</style>
+</div>
+<script>
+(function () {
+  // 1) WHERE THE INSTALLER CODE LIVES: a repo with installer/install.js and installer/catalog.json.
+  //    Use a release tag or a full commit SHA instead of 'main' so it can never change underneath people.
+  var core = { owner: 'arsic1992', repo: 'global-forum', ref: 'main' };
+
+  // 2) WHICH THEMES CAN BE INSTALLED. Each repo needs a manifest.json in its root.
+  //    One entry: the installer opens straight to that theme.
+  //    Several entries: people pick one first (or link to this page with #id, e.g. #commons).
+  var themes = [
+    { id: 'commons', name: 'The Commons', description: 'Seasons, holidays, levels & conversations', owner: 'arsic1992', repo: 'global-forum', ref: 'main' }
+    // , { id: 'aurum', name: 'Aurum', description: 'Aurum theme for Forumotion', owner: 'arsic1992', repo: 'aurum-theme', ref: 'main' }
+  ];
+
+  var theme = 'auto';   // installer colours: 'light', 'dark' or 'auto' (the moon / sun button overrides it)
+  // ---------------------------------------------------------------------------------------------
+
+  window.UNIVERSAL_INSTALLER = { core: core, themes: themes, theme: theme };
+  var url = 'https://raw.githubusercontent.com/' + core.owner + '/' + core.repo + '/' + core.ref + '/installer/install.js';
+
+  fetch(url).then(function (r) {
+    if (!r.ok) { throw new Error('HTTP ' + r.status); }
+    return r.text();
+  }).then(function (code) {
+    var s = document.createElement('script');
+    s.text = code;
+    document.head.appendChild(s);
+  }).catch(function (e) {
+    var box = document.getElementById('theme-installer');
+    box.style.color = '#c43b2c';
+    box.textContent = 'Could not load the installer (' + e.message + '). Check that the repository is public and the ref exists.';
+  });
+})();
+</script>

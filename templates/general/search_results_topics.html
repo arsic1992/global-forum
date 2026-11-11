@@ -1,0 +1,69 @@
+<!-- BEGIN navmenu -->
+<div class="topic-actions fm-actions">
+	<p class="fm-path">
+		<a class="nav" href="{U_INDEX}">{L_INDEX}</a> :: <span class="fm-path-current">{L_SEARCH_TITLE}</span>
+	</p>
+</div>
+<!-- END navmenu -->
+
+<form class="fm-sr" action="{S_ACTION}" method="post" name="post" onsubmit="return verify_select();">
+	<h1 class="page-title fm-page-title fm-sr-title">{L_SEARCH_MATCHES}</h1>
+	<div class="forabg fm-tlist fm-sr-topics">
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<ul id="memberlist" class="topiclist topics fm-tlist-head">
+				<li class="header">
+					<dl class="icon">
+						<dt class="fm-tlist-title">{L_TOPICS}</dt>
+						<dd class="posts">{L_REPLIES}</dd>
+						<dd class="views">{L_VIEWS}</dd>
+						<dd class="lastpost">{L_LASTPOST}</dd>
+					</dl>
+				</li>
+			</ul>
+
+			<ul class="topiclist topics search fm-topics">
+			<!-- BEGIN searchresults -->
+				<li class="row fm-trow {searchresults.ROW_ALT_CLASS}">
+					<dl class="icon fm-topic" style="background-image: url('{searchresults.TOPIC_FOLDER_IMG}');">
+						<dd class="dterm fm-topic-main" title="{searchresults.L_TOPIC_FOLDER_ALT}" {searchresults.TOPIC_ICON}>
+							<div class="fm-topic-head">
+							<span class="fm-topic-flags">{searchresults.NEWEST_POST_IMG}
+							{searchresults.PARTICIPATE_POST_IMG}</span>&nbsp;
+							<span class="fm-topic-type">{searchresults.TOPIC_TYPE}</span>
+							<div class="topic-title-container"><h2 class="topic-title"><a class="topictitle" href="{searchresults.U_VIEW_TOPIC}">{searchresults.TOPIC_TITLE}</a></h2></div>
+							</div>
+							<br />
+							<div class="fm-topic-meta">
+							<span class="fm-topic-pages">{searchresults.GOTO_PAGE_NEW}</span>
+							<span class="span-tab">{searchresults.L_BY} {searchresults.TOPIC_AUTHOR} {searchresults.L_IN} <a class="fm-sr-forum" href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_NAME}</a></span>
+							<!-- BEGIN nav_tree --><span class="fm-topic-tree">{searchresults.TOPIC_NAV_TREE_NEW}</span><!-- END nav_tree -->
+							</div>
+						</dd>
+						<div class="fm-topic-stats">
+						<dd class="posts">{searchresults.REPLIES} <dfn>{L_REPLIES}</dfn></dd>
+						<dd class="views">{searchresults.VIEWS} <dfn>{L_VIEWS}</dfn></dd>
+						</div>
+						<dd class="lastpost fm-tlastpost">
+							<span class="fm-tlp-info">
+								{searchresults.LAST_POST_AUTHOR}&nbsp;<dfn>{L_LASTPOST}</dfn>{searchresults.LAST_POST_IMG}
+								<br style="clear:left;" />
+								{searchresults.LAST_POST_TIME}
+							</span>
+						</dd>
+					</dl>
+				</li>
+			<!-- END searchresults -->
+			</ul>
+
+			<div class="clear"></div>
+			<span class="corners-bottom"><span></span></span>
+		</div>
+	</div>
+
+	<div class="fm-sr-foot">
+		<p class="pagination fm-pagebar"><span class="fm-pages">{PAGINATION}</span></p>
+		<p class="right-box fm-sr-top"><a href="#top">{L_BACK_TO_TOP}</a></p>
+	</div>
+</form>
+<div class="clear"></div>
+<div class="fm-sr-jump">{JUMPBOX}</div>

@@ -1,0 +1,78 @@
+<form name="manage" action="{S_MODCP_ACTION}" method="post" class="fm-modform fm-modcp">
+<div class="fm-index-top">
+<!-- BEGIN switch_user_logged_in --><p class="right rightside fm-lastvisit">{LAST_VISIT_DATE}</p><!-- END switch_user_logged_in -->
+<p class="fm-curtime">{CURRENT_TIME}</p>
+</div>
+
+<div class="topic-actions fm-modpath-bar">
+	<p class="fm-path fm-modpath">{L_INDEX}{NAV_CAT_DESC}</p>
+</div>
+
+<h1 class="page-title fm-page-title fm-mod-title">{L_MOD_CP}</h1>
+<p class="linkmcp fm-mod-explain">{L_MOD_CP_EXPLAIN}</p>
+<div class="panel row3">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<div id="cp-main" class="mcp-main">
+		<br />
+		<div class="panel">
+			<div class="inner"><span class="corners-top"><span></span></span>
+			<table class="table1 fm-mc-table" cellspacing="1">
+				<thead>
+					<tr>
+						<th class="name">&nbsp;</th>
+						<th class="name">{L_TOPICS}</th>
+						<th>{L_REPLIES}</th>
+						<th class="name">{L_LASTPOST}</th>
+						<th>{L_SELECT}</th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- BEGIN topicrow -->
+					<tr class="{topicrow.ROW_CLASS}">
+						<td class="icon fm-mc-icon" style="background-image:url('{topicrow.TOPIC_FOLDER_IMG}'); background-repeat: no-repeat; background-position: center;">
+							{topicrow.ICON}
+						</td>
+						<td class="fm-mc-topic">
+							{topicrow.TOPIC_TYPE}<a class="topictitle" href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a>
+							<div class="span-tab">
+                                {topicrow.L_BY}&nbsp;<a href="{topicrow.U_VIEW_AUTHOR}">{topicrow.TOPIC_AUTHOR}</a>
+							</div>
+						</td>
+						<td class="posts">{topicrow.REPLIES}</td>
+						<td class="fm-mc-time">{topicrow.LAST_POST_TIME}</td>
+						<td class="posts"><input type="checkbox" name="topic_id_list[]" value="{topicrow.TOPIC_ID}" /></td>
+					</tr>
+				<!-- END topicrow -->
+				</tbody>
+			</table>
+			<span class="corners-bottom"><span></span></span></div>
+		</div>
+		<p class="right-box"><a href="#" onclick="this.value=check('select','manage');return false;">{L_SELECT_ALL}</a>&nbsp;::&nbsp;<a href="#" onclick="this.value=check('unselect','manage');return false;">{L_USELECT_ALL}</a></p>
+		<div class="clear"></div>
+		<fieldset class="submit-buttons fm-mod-actions">
+			{S_HIDDEN_FIELDS}
+			<!-- BEGIN switch_delete --><span class="fm-modbtn fm-modbtn-delete"><input class="button2" type="submit" name="delete" value="{L_DELETE}" /></span>&nbsp;
+			<!-- END switch_delete -->
+			<span class="fm-modbtn fm-modbtn-trash"><input class="button2" type="submit" name="trash" value="{L_TRASH}"/></span>&nbsp;
+			<span class="fm-modbtn fm-modbtn-move"><input class="button2" type="submit" name="move" value="{L_MOVE}" /></span>&nbsp;
+			<span class="fm-modbtn fm-modbtn-lock"><input class="button2" type="submit" name="lock" value="{L_LOCK}" /></span>&nbsp;
+			<span class="fm-modbtn fm-modbtn-unlock"><input class="button2" type="submit" name="unlock" value="{L_UNLOCK}" /></span>&nbsp;
+			<!-- BEGIN switch_sticky --><span class="fm-modbtn fm-modbtn-sticky"><input class="button2" type="submit" name="sticky" value="{L_STICKY}" /></span>&nbsp;<!-- END switch_sticky -->
+			<!-- BEGIN switch_announce --><span class="fm-modbtn fm-modbtn-announce"><input class="button2" type="submit" name="announce" value="{L_ANNOUNCE}" /></span>&nbsp;<!-- END switch_announce -->
+			<!-- BEGIN switch_normal --><span class="fm-modbtn fm-modbtn-normal"><input class="button2" type="submit" name="normal" value="{L_NORMAL}" /></span><!-- END switch_normal -->
+		</fieldset>
+	</div>
+	<div class="clear"></div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<div class="fm-mc-foot">
+<p class="left-box fm-mc-pagenum">{PAGE_NUMBER}</p>
+<p class="pagination fm-pagebar fm-mc-pages"><span class="fm-pages">{PAGINATION}</span></p>
+<div class="clear"></div>
+</div>
+</form>
+
+<form action="{S_JUMPBOX_ACTION}" method="get" name="jumpbox" class="fm-jumpbox" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+	<p class="right fm-jumpbox-row"><span class="fm-jumpbox-label">{L_JUMP_TO}:</span>&nbsp;{S_JUMPBOX_SELECT}&nbsp;<input class="button2" type="submit" value="{L_GO}" /></p>
+</form>
