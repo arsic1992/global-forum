@@ -46,6 +46,7 @@
    26l. More holidays, falling effects, New Year countdown, writing helpers,
         levels & badges
    26m. Private messages as conversations
+   26n. Topic page numbers fix, staff notice templates
    27. Responsive
    ========================================================================== */
 
@@ -20779,6 +20780,301 @@ html.fm-pref-compact #phpbb .fm-badge > i {
 
 	#phpbb .fm-pmc-msgs::before {
 		left: 14px;
+	}
+}
+
+
+/* ==========================================================================
+   26n. TOPIC PAGE NUMBERS FIX, STAFF NOTICE TEMPLATES (fm-mod-templates.js)
+   ========================================================================== */
+
+/* page numbers next to topic titles: prosilver's ".row .pagination span a"
+   gave them a white background and a 0 font size (from the wrapper) */
+#phpbb .fm-topic-pages,
+#phpbb .fm-topic-pages * {
+	background: none !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+#phpbb .fm-topic-pages img {
+	display: none !important;
+}
+
+#phpbb .fm-topic-pages a {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	min-width: 20px;
+	height: 20px;
+	margin: 0 !important;
+	padding: 0 5px !important;
+	font-size: 11px !important;
+	font-weight: 600 !important;
+	line-height: 1 !important;
+	color: var(--fm-muted) !important;
+	text-decoration: none !important;
+	background: var(--fm-card-2) !important;
+	border: 1px solid var(--fm-line) !important;
+	border-radius: var(--fm-radius-xs) !important;
+}
+
+#phpbb .fm-topic-pages a:hover {
+	color: var(--fm-on-accent) !important;
+	background: var(--fm-accent) !important;
+	border-color: var(--fm-accent) !important;
+}
+
+#phpbb .fm-topic-pages .page-sep {
+	display: none !important;
+}
+
+/* --- notice colours: each type's own colour, tinted by the theme --- */
+
+:root {
+	--fm-n-info: color-mix(in srgb, #2f7fd6 80%, var(--fm-accent));
+	--fm-n-warn: color-mix(in srgb, #e8842f 85%, var(--fm-accent));
+	--fm-n-tut: color-mix(in srgb, var(--fm-accent) 80%, #2a2a2a);
+	--fm-n-ban: color-mix(in srgb, #c0394f 82%, var(--fm-lock));
+	--fm-n-gallery: color-mix(in srgb, #b8862e 78%, var(--fm-accent));
+}
+
+/* --- the "Templates" button and its menu --- */
+
+#phpbb .sceditor-button-templates {
+	--fm-sce: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='16' rx='2'/><path d='M3 9h18M8 13h8M8 16h5'/></svg>");
+}
+
+#phpbb a.sceditor-button-templates.is-open {
+	background: var(--fm-tint-accent) !important;
+}
+
+#phpbb a.sceditor-button-templates.is-open div {
+	background: var(--fm-accent) !important;
+}
+
+.fm-tpl-menu {
+	position: fixed;
+	z-index: 9000;
+	min-width: 210px;
+	padding: 6px;
+	font-family: var(--fm-font);
+	background: var(--fm-sheen), var(--fm-card);
+	border: 1px solid var(--fm-line);
+	border-radius: var(--fm-radius);
+	box-shadow: 0 16px 34px var(--fm-shadow);
+	animation: fm-pop .14s ease-out;
+}
+
+.fm-tpl-menu .fm-tpl-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 9px 12px;
+	font-size: 13.5px;
+	font-weight: 500;
+	color: var(--fm-ink);
+	text-decoration: none;
+	border-radius: var(--fm-radius-sm);
+}
+
+.fm-tpl-menu .fm-tpl-item:hover,
+.fm-tpl-menu .fm-tpl-item:focus-visible {
+	color: var(--fm-ink-strong);
+	background: var(--fm-card-2);
+	outline: none;
+}
+
+.fm-tpl-menu .fm-tpl-dot {
+	flex: 0 0 auto;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--fm-n);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--fm-n) 22%, transparent);
+}
+
+.fm-tpl-info { --fm-n: var(--fm-n-info); }
+.fm-tpl-warn { --fm-n: var(--fm-n-warn); }
+.fm-tpl-tut { --fm-n: var(--fm-n-tut); }
+.fm-tpl-ban { --fm-n: var(--fm-n-ban); }
+.fm-tpl-gallery { --fm-n: var(--fm-n-gallery); }
+
+/* --- the notice boxes in posts, messages and previews ---
+   [table class="info"] [tr] header [/tr] [tr] text [/tr] [tr] footer [/tr] */
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) {
+	display: block !important;
+	width: auto !important;
+	max-width: 100%;
+	margin: 6px 0 14px !important;
+	overflow: hidden;
+	font-style: normal;
+	text-align: left;
+	color: var(--fm-ink);
+	background: var(--fm-card) !important;
+	border: 1px solid color-mix(in srgb, var(--fm-n) 60%, var(--fm-line)) !important;
+	border-radius: var(--fm-radius-lg) !important;
+	border-collapse: separate !important;
+	border-spacing: 0 !important;
+	box-shadow: 0 14px 30px -14px var(--fm-shadow), 0 0 0 4px color-mix(in srgb, var(--fm-n) 8%, transparent);
+}
+
+#phpbb table.info { --fm-n: var(--fm-n-info); }
+#phpbb table.warn { --fm-n: var(--fm-n-warn); }
+#phpbb table.tut { --fm-n: var(--fm-n-tut); }
+#phpbb table.ban { --fm-n: var(--fm-n-ban); }
+#phpbb table.gallery { --fm-n: var(--fm-n-gallery); }
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) :is(tbody, tr) {
+	display: block !important;
+	background: none !important;
+	border: 0 !important;
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) td {
+	display: block !important;
+	padding: 18px 24px !important;
+	font-family: var(--fm-font);
+	font-size: 14.5px;
+	line-height: 1.7;
+	color: var(--fm-ink) !important;
+	background: none !important;
+	border: 0 !important;
+	text-align: left !important;
+}
+
+/* header: small label on the first line, title under it */
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:first-child td {
+	padding: 16px 24px 15px !important;
+	font-family: var(--fm-head-font, var(--fm-font));
+	font-size: 19px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: #ffffff !important;
+	background:
+		radial-gradient(120% 160% at 100% 0, rgba(255, 255, 255, .14), transparent 55%),
+		linear-gradient(110deg, color-mix(in srgb, var(--fm-n) 72%, #000000), var(--fm-n)) !important;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:first-child td::first-line {
+	font-family: var(--fm-font);
+	font-size: 10.5px;
+	font-weight: 800;
+	letter-spacing: 2.4px;
+	text-transform: uppercase;
+	line-height: 2;
+}
+
+/* a matching icon in the header corner */
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:first-child td {
+	position: relative;
+	padding-right: 64px !important;
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:first-child td::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 22px;
+	width: 28px;
+	height: 28px;
+	margin-top: -14px;
+	background: rgba(255, 255, 255, .85);
+	-webkit-mask: var(--fm-n-ico) center / contain no-repeat;
+	mask: var(--fm-n-ico) center / contain no-repeat;
+}
+
+#phpbb table.info { --fm-n-ico: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><circle cx='12' cy='12' r='9'/><path d='M12 11v6M12 7.5v.01'/></svg>"); }
+#phpbb table.warn { --fm-n-ico: var(--fm-ico-alert); }
+#phpbb table.tut { --fm-n-ico: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 9l10-5 10 5-10 5z'/><path d='M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5'/></svg>"); }
+#phpbb table.ban { --fm-n-ico: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><circle cx='12' cy='12' r='9'/><path d='M5.6 5.6l12.8 12.8'/></svg>"); }
+#phpbb table.gallery { --fm-n-ico: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='16' rx='2'/><circle cx='9' cy='10' r='2'/><path d='M21 16l-5-5-9 9'/></svg>"); }
+
+/* text row: a soft tint of the notice colour */
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:nth-child(2) td {
+	padding: 20px 24px !important;
+	background: linear-gradient(180deg, color-mix(in srgb, var(--fm-n) 7%, transparent), transparent 70%) !important;
+}
+
+/* footer: small signature line on the right */
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:last-child:not(:first-child) td {
+	display: flex !important;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	padding: 11px 24px !important;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .4px;
+	color: var(--fm-muted) !important;
+	background: var(--fm-card-2) !important;
+	border-top: 1px solid var(--fm-line) !important;
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:last-child:not(:first-child) td::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--fm-n);
+}
+
+/* only two rows: the second one is the text, not a footer */
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:nth-child(2):last-child td {
+	display: block !important;
+	font-size: 14.5px;
+	font-weight: 400;
+	letter-spacing: 0;
+	color: var(--fm-ink) !important;
+	background: linear-gradient(180deg, color-mix(in srgb, var(--fm-n) 7%, transparent), transparent 70%) !important;
+	border-top: 0 !important;
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:nth-child(2):last-child td::before {
+	content: none;
+}
+
+/* gallery: the pictures in a grid */
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table.gallery tr:nth-child(2) td {
+	display: grid !important;
+	grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+	gap: 10px;
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table.gallery tr:nth-child(2) td > br {
+	display: none;
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table.gallery tr:nth-child(2) td img {
+	display: block;
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: var(--fm-radius-sm);
+	border: 1px solid var(--fm-line);
+	cursor: zoom-in;
+}
+
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table.gallery tr:nth-child(2) td a {
+	display: block;
+}
+
+/* links inside the boxes take the notice colour */
+#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:not(:first-child) td a {
+	color: color-mix(in srgb, var(--fm-n) 75%, var(--fm-ink)) !important;
+}
+
+@media (max-width: 600px) {
+	#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) td {
+		padding-left: 16px !important;
+		padding-right: 16px !important;
+	}
+
+	#phpbb :is(.content, .postbody, .fm-pmc-body, .signature_div, .fm-post-sig, .postdetails) table:is(.info, .warn, .tut, .ban, .gallery) tr:first-child td {
+		padding-right: 52px !important;
 	}
 }
 
